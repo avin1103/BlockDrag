@@ -15,6 +15,35 @@
                   battery=R.image("Battery.svg",0,300,389,195);
                  battery.rotate(90);     
                  };
+                 var startPath = function () {
+    this.ox = 0;
+    this.oy = 0;
+    this.ox1=0;
+    this.oy1=0;
+  },
+                 movePath = function (dx, dy) {
+    var thisBox=battery.getBBox();
+    var w=battery.node.getBoundingClientRect();
+    
+    var trans_x = dx-this.ox;
+    var trans_y = dy-this.oy;
+    this.translate(trans_y,-trans_x);
+
+    this.ox = dx;
+    this.oy = dy;
+
+  },
+                  up = function (dx1,dy1) {
+        // restoring state
+       var trans_x = dx1-this.ox1;
+    var trans_y = dy1-this.oy1;
+    this.translate(trans_x,trans_y);
+   
+    this.ox1 = dx1;
+    this.oy1 = dy1;         
+    };
+
+                 battery.drag(movePath,startPath,up);
         </script>
     </head>
     <body>
