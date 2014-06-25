@@ -11,6 +11,8 @@
         <script>
             window.onload = function () {
                 var R = Raphael(0, 0, "100%", "100%"),
+                battery=R.image("battery.svg",0,300,389,195);
+                 battery.rotate(90);     
                     r = R.circle(100, 100, 50).attr({fill: "hsb(0, 1, 1)", stroke: "none", opacity: .5}),
                     g = R.circle(210, 100, 50).attr({fill: "hsb(.3, 1, 1)", stroke: "none", opacity: .5}),
                     b = R.circle(320, 100, 50).attr({fill: "hsb(.6, 1, 1)", stroke: "none", opacity: .5}),
@@ -34,4 +36,4 @@
         <div id="holder"></div>
         <p id="copy">Demo of <a href="http://raphaeljs.com/">Raphaël</a>—JavaScript Vector Library</p>
     
-<svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><circle cx="100" cy="100" r="50" fill="#ff0000" stroke="none" opacity="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.5;"></circle><circle cx="210" cy="100" r="50" fill="#32ff00" stroke="none" opacity="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.5;"></circle><circle cx="320" cy="100" r="50" fill="#0065ff" stroke="none" opacity="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.5;"></circle><circle cx="436" cy="163" r="50" fill="#cb00ff" stroke="none" opacity="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0.5;"></circle></svg></body></html>
+<svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
