@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="389px" height="55px" viewBox="0 0 389 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7892) - http://www.bohemiancoding.com/sketch -->
+    <title>Wire 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feComposite in="shadowBlurInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.35 0" in="shadowInnerInner1" type="matrix" result="shadowMatrixInner1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Wire-2" sketch:type="MSLayerGroup" transform="translate(1.000000, 3.000000)">
+            <rect id="Rectangle-26" stroke="#B0B0B0" stroke-width="2" fill="#F6F6F6" sketch:type="MSShapeGroup" x="0" y="9" width="387" height="31" rx="4"></rect>
+            <path d="M41.0002234,0 C38.790961,0 37,1.7874392 37,4.00987566 L37,44.9901243 C37,47.2047175 38.7834933,49 40.9986278,49 L298.517516,49 C300.725897,49 304.305219,49 306.523668,49 L345.992476,49 C348.205771,49 350,47.2125608 350,44.9901243 L350,4.00987566 C350,1.79528248 348.201008,0 345.999777,0 L41.0002234,0 Z" id="Rectangle-15" stroke="#2D2926" stroke-width="6" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            <text id="Wire" fill="white" filter="url(#filter-1)" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="36" font-weight="420" sketch:alignment="middle">
+                <tspan x="156.65" y="37" fill="#2F2F2F">Wire</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

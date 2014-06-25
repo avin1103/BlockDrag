@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://raphaeljs.com/touches.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Raphaël · Drag-n-drop</title>
+        <link rel="stylesheet" href="./Raphaël · Drag-n-drop_files/demo.css" type="text/css" media="screen">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon-precomposed" href="http://raphaeljs.com/Raphael.png">
+        <link rel="stylesheet" href="./Raphaël · Drag-n-drop_files/demo-print.css" type="text/css" media="print">
+        <script src="./Raphaël · Drag-n-drop_files/raphael.js"></script>
+        <script>
+            window.onload = function () {
+                var R = Raphael(0, 0, "100%", "100%"),
+
+//svgNamespaceURI = "http://www.w3.org/2000/svg",
+                battery=R.image("battery.svg",0,300,389,195);
+                 battery.rotate(90);           
+                    wiret=R.image("wire.svg",500,100,500,80);
+                    wireb=R.image("wire.svg",500,500,500,80);
+                    redled=R.image("Red LED.svg",600,600,389,195);
+                    var w3=wireb.node.getBoundingClientRect();
+    var w2=wiret.node.getBoundingClientRect();
+    var batt=battery.node.getBoundingClientRect();
+                   console.log(batt);
+                   console.log('wiretop');
+                   console.log(w2);
+                   console.log((batt.right+batt.left)/2);
+                    var blocks=[battery,wireb,wiret];
+                    //var k;
+  //                  d3="http://d3js.org/d3.v3.min.js",
+    //               svg = d3.select(document.getElementById('sampleSVGId')),
+
+      //               mySquare=svg.append("rect")
+  //.attr("x",60)
+  //.attr("y",60)
+  //.attr("width",60)
+  //.attr("height",60);
+                                        
+
+var c2=R.rect(10, 10, 50, 50,10).attr("fill", "blue");
+//var arr=[];
+//console.log(arr);
+
+        
+
+ var startPath = function () {
+    this.ox = 0;
+    this.oy = 0;
+    this.ox1=0;
+    this.oy1=0;
+  },
+  movePath = function (dx, dy) {
+    var thisBox=battery.getBBox();
+    var w=battery.node.getBoundingClientRect();
+    
+    var trans_x = dx-this.ox;
+    var trans_y = dy-this.oy;
+    this.translate(trans_y,-trans_x);
+
+    this.ox = dx;
+    this.oy = dy;
+
+  },
+
+/* movePath12 =function(dx1,dy1,w){
+
+    var thisBox=this.getBBox();
+    var w1=this.node.getBoundingClientRect();
+    var w3=wireb.node.getBoundingClientRect();
+    var w2=wiret.node.getBoundingClientRect();
+    var batt=battery.node.getBoundingClientRect();
+   if((Math.abs(batt.right-w1.left))<50)
+   {
+   // this.animate(
+   //{ transform: 't-300,100'},100);
+console.log('HII');
+var z=-(wireb.left-battery.right+50);
+var v=batt.bottom-wireb.bottom;
+this.animate(
+
+  {transform: 't'+z+','+v},100);
+
+  //  battery.animate(
+  // { transform: 't10,-20 r90'},100);
+
+    //this.translate(0,-(Math.abs(w1.top-w.bottom)));
+    
+                 //   this.attr({x: (w.bottom-300), y:(w.bottom-300)});
+   // wire1.attr({x:(w.bottom-150)});
+}else{
+
+    console.log(batt.right-w1.left);
+    console.log(batt.top-w1.bottom);
+    var trans_x = dx1-this.ox1;
+    var trans_y = dy1-this.oy1;
+    this.translate(trans_x,trans_y);
+   
+    this.ox1 = dx1;
+    this.oy1 = dy1;}},*/
+
+movePath2 =function(dx1,dy1,w){
+
+    var w1=this.node.getBoundingClientRect();
+    var w3=wireb.node.getBoundingClientRect();
+    var w2=wiret.node.getBoundingClientRect();
+    var batt=battery.node.getBoundingClientRect();
+   if((Math.abs(batt.right-w1.left)<10))
+   {  
+//console.log('hi');
+                  //  var rect=document.getElementById('batt');
+                    // var animation = document.createElementNS(rect, 'animateTransform');
+                    //console.log(rect);
+//dx=-100,
+
+
+
+  
+
+    //var x1=x.node.getBoundingClientRect();
+   // var k=(w1.left-batt.right+20);
+/*  if(x1.height>x1.width){
+x.animate(
+  
+  { transform: 't'+dx+','+dy+' r90'},100);
+
+//.translate(0,100);
+//x.translate(0,0);
+arr.push(this);
+  }*/
+if(this==wireb)
+  {
+    dx=batt.left-w2.left+70;
+      dy=batt.top-170;
+      dy2=batt.bottom-w1.top+30;
+this.animate(
+
+  { transform: 't'+dx+','+dy2},1000);
+  }
+  else{
+    dx=batt.left-w3.left+20;
+      dy=batt.top-170;
+      //dy2=batt.bottom-w1.top+100;
+this.animate(
+
+  { transform: 't'+dx+','+dy},1000);
+  }
+ 
+
+ } //rect.setAttributeNS(null,"transform","translate("+ dx + ", " + dy +")");
+                //  this.appendChild(animation); .transition()
+  //mySquare.attr("x",320)
+  //.duration(1000) // this is 1s
+  //.delay(100)
+    //battery.animate(
+   //{ left:100},100);
+
+    //this.translate(0,-(Math.abs(w1.top-w.bottom)));
+    
+                  //  battery.attr({x: (w.bottom-300), y:(w.bottom-300)});
+    //this.attr({x:(w1.bottom)});
+else{
+
+    var trans_x = dx1-this.ox1;
+    var trans_y = dy1-this.oy1;
+    this.translate(trans_y,-trans_x);
+   
+    this.ox1 = dx1;
+    this.oy1 = dy1;}},
+
+  movePath1 =function(dx1,dy1,w){
+
+    var w1=this.node.getBoundingClientRect();
+  //  var w3=wireb.node.getBoundingClientRect();
+   // var w2=wiret.node.getBoundingClientRect();
+   // var batt=battery.node.getBoundingClientRect();
+for(var i=0;i<blocks.length;i++)
+{
+  for(var j=0;j<blocks.length;j++)
+  {
+    if(blocks[j]!==this)
+
+{
+  console.log("whats up");
+    var w2=blocks[j].node.getBoundingClientRect();
+  w2cx=(w2.right+w2.left)/2;
+console.log(w2cx);
+    if((Math.abs(w1.left-w2cx)<10))
+    {
+  
+       // if(Math.abs(w1.bottom-w2.top)<20){
+        console.log('w1left');
+        console.log(w1.left);
+               dx=-(w1.left-w2cx);
+               console.log(dx);
+      dy=0;
+      //dy2=batt.bottom-w1.top+100;
+  this.animate(
+
+  { transform: 't'+dx+','+dy},1000);
+
+
+      // }
+       /* else
+          if(Math.abs(w1.top-w2.bottom)<20){
+             dx=-w2.right;
+      dy=w2.bottom-w1.top+50;
+      //dy2=batt.bottom-w1.top+100;
+  this.animate(
+
+  { transform: 't'+dx+','+dy},1000);
+
+
+          } */
+   
+
+    }
+    else
+    {
+ var trans_x = dx1-this.ox1;
+    var trans_y = dy1-this.oy1;
+    this.translate(trans_x,trans_y);
+   
+    this.ox1 = dx1;
+    this.oy1 = dy1;
+
+    }
+
+
+}
+    }
+  }
+
+
+
+},
+     up = function (dx1,dy1) {
+        // restoring state
+       var trans_x = dx1-this.ox1;
+    var trans_y = dy1-this.oy1;
+    this.translate(trans_x,trans_y);
+   
+    this.ox1 = dx1;
+    this.oy1 = dy1;         
+    }
+
+
+    battery.node.onclick = function () 
+    { 
+      /*battery.drag(movePath,startPath);
+      battery.node.onmouseup = function () { wire2.drag(movePath,startPath)};*/
+    battery.drag(movePath1,startPath,up);
+
+    };
+     wiret.node.onclick = function () { wiret.drag(movePath1,startPath,up);
+
+    /*wire1.node.onclick = function () { wire1.drag(movePath1,startPath)};*/
+    };
+  
+
+    wireb.node.onclick = function () { wireb.drag(movePath1,startPath,up);
+
+    /*wire3.node.onclick = function () { wire3.drag(movePath1,startPath)};*/
+    };
+  
+        
+
+
+                 };
+        </script>
+    </head>
+    <body>
+        <div id="holder"></div>
+        <p id="copy">Demo of <a href="http://raphaeljs.com/">Raphaël</a>—JavaScript Vector Library</p>
+    
+<svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
