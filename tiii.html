@@ -27,7 +27,7 @@
                     var w1=this.node.getBoundingClientRect();
                    
 
-
+console.log(this.ox);
 
 for(var i=0;i<blocks.length;i++)
 {
@@ -42,20 +42,22 @@ else
     var w2=blocks[j].node.getBoundingClientRect();
   w2cx=(w2.right+w2.left)/2;
 //console.log(w2cx);
-    if((Math.abs(w1.left-w2cx)<10))
+    if((Math.abs(w1.left-w2cx)<100))
     {
   
        // if(Math.abs(w1.bottom-w2.top)<20){
        // console.log('w1left');
         //console.log(w1.left);
-               sdx=dx;
+         //      sdx=-this.ox+dx;
                //console.log(dx);
-      sdy=dy;
+     // sdy=-this.oy+dy;
+     // console.log(sdx);
+     // console.log(sdy);
       //dy2=batt.bottom-w1.top+100;
   this.animate(
 
-  { transform: 't'+sdx+','+sdy},1000);
-
+  { //transform: 't'+sdx+','+sdy},1000);
+    transform: 't-100,0'},1000);
 
       // }
        /* else
