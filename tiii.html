@@ -33,26 +33,28 @@ for(var i=0;i<blocks.length;i++)
 {
   for(var j=0;j<blocks.length;j++)
   {
-    if(blocks[j]!==this)
-
+    if(blocks[j]==this){
+      continue;
+    }
+else
 {
-  console.log("whats up");
+ // console.log("whats up");
     var w2=blocks[j].node.getBoundingClientRect();
   w2cx=(w2.right+w2.left)/2;
-console.log(w2cx);
+//console.log(w2cx);
     if((Math.abs(w1.left-w2cx)<10))
     {
   
        // if(Math.abs(w1.bottom-w2.top)<20){
        // console.log('w1left');
         //console.log(w1.left);
-               sdx=dx1;
+               sdx=dx;
                //console.log(dx);
-      sdy=dy1;
+      sdy=dy;
       //dy2=batt.bottom-w1.top+100;
   this.animate(
 
-  { transform: 't'+dx1+','+dy1},1000);
+  { transform: 't'+sdx+','+sdy},1000);
 
 
       // }
@@ -99,10 +101,10 @@ for(var i=0;i<blocks.length;i++)
     if(blocks[j]!==this)
 
 {
-  console.log("whats up");
+ // console.log("whats up");
     var w2=blocks[j].node.getBoundingClientRect();
   w2cx=(w2.right+w2.left)/2;
-console.log(w2cx);
+//console.log(w2cx);
     if((Math.abs(w1.left-w2cx)<10))
     {
   
