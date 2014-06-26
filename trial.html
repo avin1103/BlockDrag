@@ -1,0 +1,159 @@
+@@ -0,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://raphaeljs.com/touches.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Raphaël · Drag-n-drop</title>
+        <link rel="stylesheet" href="./Rapwee_files/demo.css" type="text/css" media="screen">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon-precomposed" href="http://raphaeljs.com/Raphael.png">
+        <link rel="stylesheet" href="./Rapwee_files/demo-print.css" type="text/css" media="print">
+        <script src="./Rapwee_files/raphael.js"></script>
+        <script>
+            window.onload = function () {
+                var R = Raphael(0, 0, "100%", "100%"),
+                   battery=R.image("battery.png",0,300,389,195); 
+                   battery.rotate(90);
+                  wiret=R.image("wire.png",500,100,500,80);
+                    wireb=R.image("wire.png",500,500,500,80);
+                    var blocks=[battery,wireb,wiret];
+                   // redled=R.image("Red LED.svg",600,600,389,195);
+                var start = function () {
+                    this.ox = this.attr("x");
+                    this.oy = this.attr("y");
+               
+                },
+                move = function (dx, dy) {
+                    var w1=this.node.getBoundingClientRect();
+                   
+
+
+ // console.log("whats up");
+    var w2=battery.node.getBoundingClientRect();
+
+    w1cx=(w1.left+w1.right)/4;
+    console.log(w1.left);
+    console.log(w1.right);
+    console.log(w1cx);
+    w1cy=(w1.top+w1.bottom)/2;
+  w2cy=(w2.top+w2.bottom)/4;
+  w2cx=(w2.right+w2.left)/2;
+  R.circle(w1cx,w1cy,10);
+  R.circle(w2cx,w2cy,10);
+  diffy=Math.abs(w1cy-w2cy);
+  diffx=Math.abs(w2cx-w1cx);
+  console.log('x');
+  console.log(diffx);
+  console.log('y');
+  console.log(diffy);
+  console.log('difference');
+  console.log(diffx-diffy);
+//console.log(w2cx);
+    if((diffx<50)&&(diffy<50))
+    {
+    if(diffx>diffy)
+    {
+  
+     
+  this.animate(
+
+  { //transform: 't'+sdx+','+sdy},1000);
+    transform: 't-50,0'},1000);
+
+   }
+   else {
+this.animate({transform:'t0,50'},1000);
+   }
+ }
+    else
+    {
+       this.attr({x: this.ox + dx, y: this.oy + dy});
+
+    }
+    
+
+
+
+
+
+
+                },
+                 movet = function (dx, dy) {
+                    var w1=this.node.getBoundingClientRect();
+                   
+
+
+
+for(var i=0;i<blocks.length;i++)
+{
+  for(var j=0;j<blocks.length;j++)
+  {
+    if(blocks[j]!==this)
+
+{
+ // console.log("whats up");
+    var w2=blocks[j].node.getBoundingClientRect();
+  w2cx=(w2.right+w2.left)/2;
+//console.log(w2cx);
+    if((Math.abs(w1.left-w2cx)<10))
+    {
+  
+       // if(Math.abs(w1.bottom-w2.top)<20){
+       // console.log('w1left');
+        //console.log(w1.left);
+               sdx=dx1;
+               //console.log(dx);
+      sdy=dy1;
+      //dy2=batt.bottom-w1.top+100;
+  this.animate(
+
+  { transform: 't'+dx1+','+dy1},1000);
+
+
+      // }
+       /* else
+          if(Math.abs(w1.top-w2.bottom)<20){
+             dx=-w2.right;
+      dy=w2.bottom-w1.top+50;
+      //dy2=batt.bottom-w1.top+100;
+  this.animate(
+
+  { transform: 't'+dx+','+dy},1000);
+
+
+          } */
+   
+
+    }
+    else
+    {
+       this.attr({x: this.ox + dx, y: this.oy + dy});
+
+    }
+
+
+}
+    }
+  }
+
+
+
+
+
+                };
+              //  up = function () {
+                   
+               // };
+                battery.drag(movet, start);
+                wiret.drag(move,start);
+                wireb.drag(move,start);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="holder"></div>
+        <p id="copy">Demo of <a href="http://raphaeljs.com/">Raphaël</a>—JavaScript Vector Library</p>
+    
+<svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
+ No newline at end of file
+
