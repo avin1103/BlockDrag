@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://raphaeljs.com/touches.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Raphaël · Drag-n-drop</title>
+        <link rel="stylesheet" href="./Rapwee_files/demo.css" type="text/css" media="screen">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon-precomposed" href="http://raphaeljs.com/Raphael.png">
+        <link rel="stylesheet" href="./Rapwee_files/demo-print.css" type="text/css" media="print">
+        <script src="./Rapwee_files/raphael.js"></script>
+        <script>
+            window.onload = function () {
+                var R = Raphael(0, 0, "100%", "100%"),
+                   battery=R.image("smiley.png",0,300,389,195);  
+                var start = function () {
+                    this.ox = this.attr("x");
+                    this.oy = this.attr("y");
+                    this.animate({r: 70, opacity: .25}, 500, ">");
+                },
+                move = function (dx, dy) {
+                    this.attr({x: this.ox + dx, y: this.oy + dy});
+                },
+                up = function () {
+                    this.animate({r: 50, opacity: .5}, 500, ">");
+                };
+                battery.drag(move, start, up);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="holder"></div>
+        <p id="copy">Demo of <a href="http://raphaeljs.com/">Raphaël</a>—JavaScript Vector Library</p>
+    
+<svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
