@@ -30,41 +30,18 @@
 
  // console.log("whats up");
     var w2=battery.node.getBoundingClientRect();
-
-    w1cx=(w1.left+w1.right)/2-250;
-    console.log(w1.left);
-    console.log(w1.right);
-    console.log(w1cx);
-    w1cy=(w1.top+w1.bottom)/2;
-  w2cy=(w2.top+w2.bottom)/4;
-  w2cx=(w2.right+w2.left)/2;
-  R.circle(w1cx,w1cy,10);
-  R.circle(w2cx,w2cy,10);
-  diffy=Math.abs(w1cy-w2cy);
-  diffx=Math.abs(w2cx-w1cx);
-  console.log('x');
-  console.log(diffx);
-  console.log('y');
-  console.log(diffy);
-  console.log('difference');
-  console.log(diffx-diffy);
+  w2cx=(w2.top+w2.bottom)/8;
 //console.log(w2cx);
-    if((diffx<50)&&(diffy<50))
-    {
-    if(diffx>diffy)
+    if((Math.abs(w1.left-w2cx)<100))
     {
   
      
   this.animate(
 
-{//transform: 't'+dx+','+dy},1000);
- transform: 't-40,0'},1000);
+  { //transform: 't'+sdx+','+sdy},1000);
+    transform: 't-100,0'},1000);
 
    }
-   else {
-this.animate({transform:'t0,40'},1000);
-   }
- }
     else
     {
        this.attr({x: this.ox + dx, y: this.oy + dy});
