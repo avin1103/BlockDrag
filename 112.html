@@ -25,6 +25,7 @@ var top = [[]];
 var left = [[]];
 var bottom = [[]];
 var right=[[]];
+var count = 0;
 
                    var start = function () {
                     this.ox = this.attr("x");
@@ -140,12 +141,13 @@ move = function (dx, dy) {
 
   for(var i=0;i<blocks.length;i++)
   {
-    if(blocks[i]!==this)
+    if(blocks[i]!==blockA)
     {
       var blockB=blocks[i].node.getBoundingClientRect();
      if(blockB.height>blockB.width)//vertical
      {
-      moveVertical(blockA,blocks[i],left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy);
+      console.log('aaa');
+      moveVertical(blockA,blocks[i],left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy,count);
 }//vertical close
 else
 { moveHorizontalBlock(blockA,blocks[i],top_centroid_x,top_centroid_y,bottom_centroid_x,bottom_centroid_y,dx,dy);
@@ -157,7 +159,7 @@ else{
 }
 },
 
-moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy)
+moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy,count)
 {
 
 
@@ -184,11 +186,26 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 myArray=[distance_from_top_right_l,distance_from_top_left_l,distance_from_top_top_l,distance_from_bottom_right_l,distance_from_bottom_left_l,distance_from_bottom_bottom_l,distance_from_top_right_r,distance_from_top_left_r,distance_from_top_top_r,distance_from_bottom_right_r,distance_from_bottom_left_r,distance_from_bottom_bottom_r];
     //var min=checkMinimum(myArray);
 var id=myArray.indexOf(Math.min.apply(Math, myArray));
-
-if(Math.min.apply(Math,myArray)<65){
+console.log(count);
+if((Math.min.apply(Math,myArray)<60)&&(count==0)){
 
     switch(id){
-      case 0: this1.animate({transform: 't-40,0'},500);
+      case 0:   
+        /*var current_Blockly=this1.node.getBoundingClientRect();
+        var diff=Math.abs((current_Blockly.left)-(w2cx+20));
+        console.log(diff);
+        if(diff<10){
+      
+          console.log('WOHOOO');
+          this1.stop();
+          }        
+        else
+        {*/
+      this1.animate({transform:'t-40,0'},500);
+  
+        count=1;
+        console.log(count);
+        
       break;
 
       case 1: this1.animate({transform: 't0,0'},500);
@@ -230,9 +247,18 @@ if(Math.min.apply(Math,myArray)<65){
 
 else
 {
+if(Math.min.apply(Math,myArray)>50)
+{
+  count=0;
+  console.log('in');
+this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
+}
+else{
+  count=25;
+  console.log(count);
  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
+}
 }
 
 
@@ -332,14 +358,17 @@ else
 
 
 
-up = function (dx1,dy1) {
+up = function (dx,dy) {
+dx=0;
+dy=0;
+
         // restoring state
-        var trans_x = dx1-this.ox1;
+       /* var trans_x = dx1-this.ox1;
         var trans_y = dy1-this.oy1;
         this.translate(trans_x,trans_y);
 
         this.ox1 = dx1;
-        this.oy1 = dy1;         
+        this.oy1 = dy1;  */       
       };
 
 
@@ -402,9 +431,6 @@ else
 }
 }
 };*/
-              //  up = function () {
-
-               // };
                battery.drag(move, start,up);
                wiret.drag(move,start,up);
                wireb.drag(move,start,up);
