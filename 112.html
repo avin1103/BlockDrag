@@ -12,12 +12,12 @@
 <script>
 window.onload = function () {
   var R = Raphael(0, 0, "100%", "100%"),
-  battery=R.image("battery1.png",0,300,195,389); 
+  battery=R.image("battery1.png",0,150,195,389); 
   //battery.rotate(90);
-  wiret=R.image("wire.png",500,100,500,80);
-  wireb=R.image("wire.png",500,500,500,80);
+  wiret=R.image("wire.png",400,100,500,60);
+  wireb=R.image("wire.png",400,200,500,60);
 
-               redled=R.image("Red_LED.png",1000,150,195,389);
+               redled=R.image("Red_LED.png",0,150,195,389);
                 //redled.rotate(90);
                     var blocks=[battery,wireb,wiret,redled];
                
@@ -188,40 +188,40 @@ var id=myArray.indexOf(Math.min.apply(Math, myArray));
 if(Math.min.apply(Math,myArray)<65){
 
     switch(id){
-      case 0: this1.animate({transform: 't-40,0'},1000);
+      case 0: this1.animate({transform: 't-40,0'},500);
       break;
 
-      case 1: this1.animate({transform: 't0,0'},1000);
+      case 1: this1.animate({transform: 't0,0'},500);
       break;
 
-      case 2: this1.animate({transform: 't0,40'},1000);
+      case 2: this1.animate({transform: 't0,40'},500);
       break;
 
-      case 3:this1.animate({transform: 't-40,0'},1000);
+      case 3:this1.animate({transform: 't-40,0'},500);
       break;
 
-      case 4:this1.animate({transform: 't0,0'},1000);
+      case 4:this1.animate({transform: 't0,0'},500);
       break;
 
-      case 5:this1.animate({transform: 't0,-40'},1000);
+      case 5:this1.animate({transform: 't0,-40'},500);
       break;
 
-      case 6:this1.animate({transform: 't0,0'},1000);
+      case 6:this1.animate({transform: 't0,0'},500);
       break;
 
-      case 7:this1.animate({transform: 't40,0'},1000);
+      case 7:this1.animate({transform: 't40,0'},500);
       break;
 
-      case 8:this1.animate({transform: 't0,40'},1000);
+      case 8:this1.animate({transform: 't0,40'},500);
       break;
 
-      case 9:this1.animate({transform: 't0,0'},1000);
+      case 9:this1.animate({transform: 't0,0'},500);
       break;
 
-      case 10:this1.animate({transform: 't40,0'},1000);
+      case 10:this1.animate({transform: 't40,0'},500);
       break;
 
-      case 11:this1.animate({transform: 't,-40'},1000);
+      case 11:this1.animate({transform: 't,-40'},500);
       break;
     };
 
@@ -277,40 +277,40 @@ var id=myArray.indexOf(Math.min.apply(Math, myArray));
 if(Math.min.apply(Math,myArray)<20){
 
     switch(id){
-      case 0: this1.animate({transform: 't0,-40'},1000);
+      case 0: this1.animate({transform: 't0,-40'},500);
       break;
 
-      case 1: this1.animate({transform: 't0,0'},1000);//
+      case 1: this1.animate({transform: 't0,0'},500);//
       break;
 
-      case 2: this1.animate({transform: 't0,40'},1000);
+      case 2: this1.animate({transform: 't0,40'},500);
       break;
 
-      case 3:this1.animate({transform: 't0,0'},1000);
+      case 3:this1.animate({transform: 't0,0'},500);
       break;
 
-      case 4:this1.animate({transform: 't40,0'},1000);
+      case 4:this1.animate({transform: 't40,0'},500);
       break;
 
-      case 5:this1.animate({transform: 't40,0'},1000);
+      case 5:this1.animate({transform: 't40,0'},500);
       break;
 
-      case 6:this1.animate({transform: 't0,0'},1000);
+      case 6:this1.animate({transform: 't0,0'},500);
       break;
 
-      case 7:this1.animate({transform: 't0,-40'},1000);
+      case 7:this1.animate({transform: 't0,-40'},500);
       break;
 
-      case 8:this1.animate({transform: 't0,40'},1000);
+      case 8:this1.animate({transform: 't0,40'},500);
       break;
 
-      case 9:this1.animate({transform: 't0,0'},1000);
+      case 9:this1.animate({transform: 't0,0'},500);
       break;
 
-      case 10:this1.animate({transform: 't-40,0'},1000);
+      case 10:this1.animate({transform: 't-40,0'},500);
       break;
 
-      case 11:this1.animate({transform: 't-40,0'},1000);
+      case 11:this1.animate({transform: 't-40,0'},500);
       break;
     };
 }
@@ -373,7 +373,7 @@ if((Math.abs(w1.left-w2cx)<10))
       //dy2=batt.bottom-w1.top+100;
       this.animate(
 
-        { transform: 't'+dx1+','+dy1},1000);
+        { transform: 't'+dx1+','+dy1},500);
 
 
       // }
@@ -384,7 +384,7 @@ if((Math.abs(w1.left-w2cx)<10))
       //dy2=batt.bottom-w1.top+100;
   this.animate(
 
-  { transform: 't'+dx+','+dy},1000);
+  { transform: 't'+dx+','+dy},500);
 
 
 } 
