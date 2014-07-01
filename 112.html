@@ -162,7 +162,7 @@ else{
 moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy,count)
 {
 
-
+      console.log(count);
                       var w2=blockB.node.getBoundingClientRect();
                       w2cx=(w2.right+w2.left)/2;
                       
@@ -186,11 +186,12 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 myArray=[distance_from_top_right_l,distance_from_top_left_l,distance_from_top_top_l,distance_from_bottom_right_l,distance_from_bottom_left_l,distance_from_bottom_bottom_l,distance_from_top_right_r,distance_from_top_left_r,distance_from_top_top_r,distance_from_bottom_right_r,distance_from_bottom_left_r,distance_from_bottom_bottom_r];
     //var min=checkMinimum(myArray);
 var id=myArray.indexOf(Math.min.apply(Math, myArray));
-console.log(count);
+console.log('id');
+console.log(id);
 if((Math.min.apply(Math,myArray)<60)&&(count==0)){
 
     switch(id){
-      case 0:   
+      case 0:   {
         /*var current_Blockly=this1.node.getBoundingClientRect();
         var diff=Math.abs((current_Blockly.left)-(w2cx+20));
         console.log(diff);
@@ -205,7 +206,7 @@ if((Math.min.apply(Math,myArray)<60)&&(count==0)){
   
         count=1;
         console.log(count);
-        
+        }
       break;
 
       case 1: this1.animate({transform: 't0,0'},500);
@@ -246,8 +247,10 @@ if((Math.min.apply(Math,myArray)<60)&&(count==0)){
 }
 
 else
-{
-if(Math.min.apply(Math,myArray)>50)
+{var iss=Math.min.apply(Math,myArray);
+  console.log('iss');
+  console.log(iss);
+if(iss>50)
 {
   count=0;
   console.log('in');
@@ -255,6 +258,7 @@ this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
 }
 else{
+  console.log('out');
   count=25;
   console.log(count);
  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
@@ -300,7 +304,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
 var id=myArray.indexOf(Math.min.apply(Math, myArray));
 
-if(Math.min.apply(Math,myArray)<20){
+if(Math.min.apply(Math,myArray)<60){
 
     switch(id){
       case 0: this1.animate({transform: 't0,-40'},500);
@@ -361,76 +365,11 @@ else
 up = function (dx,dy) {
 dx=0;
 dy=0;
-
-        // restoring state
-       /* var trans_x = dx1-this.ox1;
-        var trans_y = dy1-this.oy1;
-        this.translate(trans_x,trans_y);
-
-        this.ox1 = dx1;
-        this.oy1 = dy1;  */       
+ 
       };
 
 
-
-   /*   movet = function (dx, dy) {
-        var w1=this.node.getBoundingClientRect();
-
-
-
-
-        for(var i=0;i<blocks.length;i++)
-        {
-          for(var j=0;j<blocks.length;j++)
-          {
-            if(blocks[j]!==this)
-
-            {
- // console.log("whats up");
- var w2=blocks[j].node.getBoundingClientRect();
- w2cx=(w2.right+w2.left)/2;
-//console.log(w2cx);
-if((Math.abs(w1.left-w2cx)<10))
-{
-
-       // if(Math.abs(w1.bottom-w2.top)<20){
-       // console.log('w1left');
-        //console.log(w1.left);
-        sdx=dx1;
-               //console.log(dx);
-               sdy=dy1;
-      //dy2=batt.bottom-w1.top+100;
-      this.animate(
-
-        { transform: 't'+dx1+','+dy1},500);
-
-
-      // }
-       /* else
-          if(Math.abs(w1.top-w2.bottom)<20){
-             dx=-w2.right;
-      dy=w2.bottom-w1.top+50;
-      //dy2=batt.bottom-w1.top+100;
-  this.animate(
-
-  { transform: 't'+dx+','+dy},500);
-
-
-} 
-
-
-}
-else
-{
- this.attr({x: this.ox + dx, y: this.oy + dy});
-
-}
-
-
-}
-}
-}
-};*/
+   
                battery.drag(move, start,up);
                wiret.drag(move,start,up);
                wireb.drag(move,start,up);
