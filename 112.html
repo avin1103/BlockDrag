@@ -196,7 +196,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 
         this1.animate({transform: 't'+(-ccx)+',0'},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -219,7 +219,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
        {
         this1.animate({transform: 't0,'+(ccx)},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -240,7 +240,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     {
       this1.animate({transform: 't'+(-ccx)+',0'},500);
 
-      up(this1);
+      up(this1,dx,dy);
     }
     else
     {
@@ -259,7 +259,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     {
       this1.animate({transform: 't0,'+(-ccx)},500);
 
-      up(this1);
+      up(this1,dx,dy);
     }
     else
     {
@@ -280,7 +280,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     {
       this1.animate({transform: 't'+(ccx)+',0'},500);
 
-      up(this1);
+      up(this1,dx,dy);
     }
     else
     {
@@ -298,7 +298,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     {
       this1.animate({transform: 't0,'+ccx},500);
 
-      up(this1);
+      up(this1,dx,dy);
     }
     else
     {
@@ -323,7 +323,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     {
       this1.animate({transform: 't'+(ccx)+',0'},500);
 
-      up(this1);
+      up(this1,dx,dy);
     }
     else
     {
@@ -345,7 +345,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
        {
         this1.animate({transform: 't0,'+(-cxx)},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -422,7 +422,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't0,'+(-ccy)},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -445,7 +445,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't0,'+(ccy)},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -471,7 +471,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't'+(ccy)+',0'},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -493,7 +493,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't'+(ccy)+',0'},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -519,7 +519,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't0,'+(-ccy)},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -541,7 +541,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't0,'+(ccy)},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -567,7 +567,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't'+(-ccy)+',0'},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -587,7 +587,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
         this1.animate({transform: 't'+(-ccy)+',0'},500);
 
-        up(this1);
+        up(this1,dx,dy);
       }
       else
       {
@@ -620,9 +620,11 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
 
 
-up = function (block) {
+up = function (block,dx,dy) {
   block.undrag();
-  block.drag(move,start);
+ 
+        block.attr({x: block.ox + dx, y: block.oy + dy});
+ block.drag(move,start);
 };
 
 
