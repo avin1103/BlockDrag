@@ -14,10 +14,10 @@ window.onload = function () {
   var R = Raphael(0, 0, "100%", "100%"),
   battery=R.image("battery1.png",0,150,195,389); 
   //battery.rotate(90);
-  wiret=R.image("wire.png",400,0,400,60);
-  wireb=R.image("wire.png",400,0,400,60);
+  wiret=R.image("wire.png",250,0,400,60);
+  wireb=R.image("wire.png",250,600,400,60);
  // var sop=0;
- redled=R.image("Red_LED.png",0,150,195,389);
+ redled=R.image("Red_LED.png",700,150,195,389);
                 //redled.rotate(90);
                 var blocks=[battery,wireb,wiret,redled];
 
@@ -624,7 +624,12 @@ up = function (block,dx,dy) {
   block.undrag();
  
         block.attr({x: block.ox + dx, y: block.oy + dy});
- block.drag(move,start);
+
+battery.drag(move, start);
+wiret.drag(move,start);
+wireb.drag(move,start);
+redled.drag(move,start);
+// block.drag(move,start);
 };
 
 
