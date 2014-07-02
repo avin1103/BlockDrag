@@ -1,4 +1,4 @@
-@@ -0,0 +1,101 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0033)http://raphaeljs.com/touches.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,25 +16,24 @@ window.onload = function () {
   //battery.rotate(90);
   wiret=R.image("wire.png",400,0,500,60);
   wireb=R.image("wire.png",400,0,500,60);
-
-               redled=R.image("Red_LED.png",0,150,195,389);
+ // var sop=0;
+ redled=R.image("Red_LED.png",0,150,195,389);
                 //redled.rotate(90);
-                    var blocks=[battery,wireb,wiret,redled];
-               
-var top = [[]];
-var left = [[]];
-var bottom = [[]];
-var right=[[]];
-var count = 0;
+                var blocks=[battery,wireb,wiret,redled];
 
-                   var start = function () {
-                    this.ox = this.attr("x");
-                    this.oy = this.attr("y");
+                var top = [[]];
+                var left = [[]];
+                var bottom = [[]];
+                var right=[[]];
 
-                  },
-                  leftTerminal=function(blockB)
-                  {   cx=blockB.left;
-                    cy=(blockB.top+blockB.bottom)/2;
+                var start = function () {
+                  this.ox = this.attr("x");
+                  this.oy = this.attr("y");
+
+                },
+                leftTerminal=function(blockB)
+                {   cx=blockB.left;
+                  cy=(blockB.top+blockB.bottom)/2;
                      /*   R.circle(cx,cy,10); //horizontal left center
                         R.circle(cx+20,cy+20,10);// horizontal left bottom
                         R.circle(cx+20,cy-20,10);//horizontal left top */
@@ -47,13 +46,13 @@ var count = 0;
                         left[3][0]=cx+40/3;
                         left[3][1]=cy;*/
                         left=[[cx,cy],[cx+20,cy+20],[cx+20,cy-20],[cx+40/3,cy]];
-                      
-                      
-                    }, 
-                    rightTerminal=function(blockB)
-                    {   cx=blockB.right;
-                      cy=(blockB.top+blockB.bottom)/2;
-                    
+
+
+                      }, 
+                      rightTerminal=function(blockB)
+                      {   cx=blockB.right;
+                        cy=(blockB.top+blockB.bottom)/2;
+
                     /*    R.circle(cx,cy,10); //horizontal left center
                         R.circle(cx-20,cy-20,10);// horizontal left bottom
                         R.circle(cx-20,cy+20,10);//horizontal left top */
@@ -65,17 +64,17 @@ var count = 0;
                         right[2][1]=cy+20;
                         right[3][0]=cx-40/3;
                         right[3][1]=cy;*/
-                    right=[[cx,cy],[cx-20,cy-20],[cx-20,cy+20],[cx-40/3,cy]];
-                      
-                    }, 
+                        right=[[cx,cy],[cx-20,cy-20],[cx-20,cy+20],[cx-40/3,cy]];
 
-                    topTerminal=function(blockB)
-                    {
-var w2=blockB;
-                      w2cy=(w2.top+w2.bottom)/4;
-                      w2cx=(w2.right+w2.left)/2;
-                      w1cx=(w2.right+w2.left)/2;
-                      w1cy=(w2.bottom);
+                      }, 
+
+                      topTerminal=function(blockB)
+                      {
+                        var w2=blockB;
+                        w2cy=(w2.top+w2.bottom)/4;
+                        w2cx=(w2.right+w2.left)/2;
+                        w1cx=(w2.right+w2.left)/2;
+                        w1cy=(w2.bottom);
                       /*R.circle(w2cx,w2.top,10);//circle top
                       R.circle(w2cx-20,w2.top+20,10);//circle top left
                       R.circle(w2cx+20,w2.top+20,10);//circle top right */
@@ -88,13 +87,13 @@ var w2=blockB;
                       top[2][1]=w2.top+20;
                       top[3][0]=w2cx;
                       top[3][1]=w2.top+40/3; */
-                    top=[[w2cx,w2.top],[w2cx-20,w2.top+20],[w2cx+20,w2.top+20],[w2cx,w2.top+40/3]];
+                      top=[[w2cx,w2.top],[w2cx-20,w2.top+20],[w2cx+20,w2.top+20],[w2cx,w2.top+40/3]];
 
-                  },
-                  bottomTerminal=function(blockB)
-                  {
-var w2=blockB;
-                    
+                    },
+                    bottomTerminal=function(blockB)
+                    {
+                      var w2=blockB;
+
                       w2cy=(w2.top+w2.bottom)/4;
                       w2cx=(w2.right+w2.left)/2;
                       w1cx=(w2.right+w2.left)/2;
@@ -112,7 +111,7 @@ var w2=blockB;
   bottom[3][0]=w2cx;
   bottom[3][1]=w1cy-40/3;*/
 
-bottom=[[w2cx,w1cy],[w2cx+20,w1cy-20],[w2cx-20,w1cy-20],[w2cx,w1cy-40/3]];
+  bottom=[[w2cx,w1cy],[w2cx+20,w1cy-20],[w2cx-20,w1cy-20],[w2cx,w1cy-40/3]];
 
 
 },
@@ -146,11 +145,10 @@ move = function (dx, dy) {
       var blockB=blocks[i].node.getBoundingClientRect();
      if(blockB.height>blockB.width)//vertical
      {
-      console.log('aaa');
-      moveVertical(blockA,blocks[i],left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy,count);
+      moveVertical(blockA,blocks[i],left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy);
 }//vertical close
 else
-{ moveHorizontalBlock(blockA,blocks[i],top_centroid_x,top_centroid_y,bottom_centroid_x,bottom_centroid_y,dx,dy);
+  { moveHorizontalBlock(blockA,blocks[i],top_centroid_x,top_centroid_y,bottom_centroid_x,bottom_centroid_y,dx,dy);
 }//horizontally close
 }
 else{
@@ -159,111 +157,219 @@ else{
 }
 },
 
-moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy,count)
+moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy)
 {
 
-      console.log(count);
-                      var w2=blockB.node.getBoundingClientRect();
-                      w2cx=(w2.right+w2.left)/2;
-                      
 
-    var distance_from_top_right_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx+20)),2)+Math.pow((left_centroid_y-(w2.top+20)),2));
-    var distance_from_top_left_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx-20)),2)+Math.pow((left_centroid_y-(w2.top+20)),2));
-    var distance_from_top_top_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx)),2)+Math.pow((left_centroid_y-w2.top),2));
+  var xxx=this1.node.getBoundingClientRect();
+  var w2=blockB.node.getBoundingClientRect();
+  w2cx=(w2.right+w2.left)/2;
 
-    var distance_from_bottom_right_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx+20)),2)+Math.pow((left_centroid_y-(w2.bottom-20)),2));
-    var distance_from_bottom_left_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx-20)),2)+Math.pow((left_centroid_y-(w2.bottom-20)),2));
-    var distance_from_bottom_bottom_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx)),2)+Math.pow((left_centroid_y-w2.bottom),2));
+
+  var distance_from_top_right_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx+20)),2)+Math.pow((left_centroid_y-(w2.top+20)),2));
+  var distance_from_top_left_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx-20)),2)+Math.pow((left_centroid_y-(w2.top+20)),2));
+  var distance_from_top_top_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx)),2)+Math.pow((left_centroid_y-w2.top),2));
+
+  var distance_from_bottom_right_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx+20)),2)+Math.pow((left_centroid_y-(w2.bottom-20)),2));
+  var distance_from_bottom_left_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx-20)),2)+Math.pow((left_centroid_y-(w2.bottom-20)),2));
+  var distance_from_bottom_bottom_l=Math.sqrt(Math.pow((left_centroid_x-(w2cx)),2)+Math.pow((left_centroid_y-w2.bottom),2));
 
   var distance_from_top_right_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx+20)),2)+Math.pow((right_centroid_y-(w2.top+20)),2));
-   var distance_from_top_left_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx-20)),2)+Math.pow((right_centroid_y-(w2.top+20)),2));
-   var distance_from_top_top_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx)),2)+Math.pow((right_centroid_y-w2.top),2));
+  var distance_from_top_left_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx-20)),2)+Math.pow((right_centroid_y-(w2.top+20)),2));
+  var distance_from_top_top_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx)),2)+Math.pow((right_centroid_y-w2.top),2));
 
-   var distance_from_bottom_right_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx+20)),2)+Math.pow((right_centroid_y-(w2.bottom-20)),2));
-   var distance_from_bottom_left_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx-20)),2)+Math.pow((right_centroid_y-(w2.bottom-20)),2));
-   var distance_from_bottom_bottom_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx)),2)+Math.pow((right_centroid_y-w2.bottom),2));
+  var distance_from_bottom_right_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx+20)),2)+Math.pow((right_centroid_y-(w2.bottom-20)),2));
+  var distance_from_bottom_left_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx-20)),2)+Math.pow((right_centroid_y-(w2.bottom-20)),2));
+  var distance_from_bottom_bottom_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx)),2)+Math.pow((right_centroid_y-w2.bottom),2));
 
-myArray=[distance_from_top_right_l,distance_from_top_left_l,distance_from_top_top_l,distance_from_bottom_right_l,distance_from_bottom_left_l,distance_from_bottom_bottom_l,distance_from_top_right_r,distance_from_top_left_r,distance_from_top_top_r,distance_from_bottom_right_r,distance_from_bottom_left_r,distance_from_bottom_bottom_r];
+  myArray=[distance_from_top_right_l,distance_from_top_left_l,distance_from_top_top_l,distance_from_bottom_right_l,distance_from_bottom_left_l,distance_from_bottom_bottom_l,distance_from_top_right_r,distance_from_top_left_r,distance_from_top_top_r,distance_from_bottom_right_r,distance_from_bottom_left_r,distance_from_bottom_bottom_r];
     //var min=checkMinimum(myArray);
-var id=myArray.indexOf(Math.min.apply(Math, myArray));
-console.log('id');
-console.log(id);
-if((Math.min.apply(Math,myArray)<60)&&(count==0)){
+    var id=myArray.indexOf(Math.min.apply(Math, myArray));
+    var ccx=Math.min.apply(Math,myArray)-10;
+    if((Math.min.apply(Math,myArray)<40 && Math.min.apply(Math,myArray)>0)){
+     var current_Blockly=this1.node.getBoundingClientRect();
 
-    switch(id){
-      case 0:   {
-        /*var current_Blockly=this1.node.getBoundingClientRect();
-        var diff=Math.abs((current_Blockly.left)-(w2cx+20));
-        console.log(diff);
-        if(diff<10){
-      
-          console.log('WOHOOO');
-          this1.stop();
-          }        
-        else
-        {*/
-      this1.animate({transform:'t-40,0'},500);
-  
-        count=1;
-        console.log(count);
-        }
+     switch(id){
+      case 0:  
+      if(current_Blockly.left-(w2cx+20)>0)
+      {
+
+        this1.animate({transform: 't'+(-ccx)+',0'},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
       break;
 
-      case 1: this1.animate({transform: 't0,0'},500);
+      case 1:
       break;
 
-      case 2: this1.animate({transform: 't0,40'},500);
-      break;
+      case 2: {
 
-      case 3:this1.animate({transform: 't-40,0'},500);
-      break;
 
-      case 4:this1.animate({transform: 't0,0'},500);
-      break;
 
-      case 5:this1.animate({transform: 't0,-40'},500);
-      break;
 
-      case 6:this1.animate({transform: 't0,0'},500);
-      break;
+       if((left_centroid_y+20)-(w2.top)<0)
+       {
+        this1.animate({transform: 't0,'+(ccx)},500);
 
-      case 7:this1.animate({transform: 't40,0'},500);
-      break;
+        up(this1);
+      }
+      else
+      {
 
-      case 8:this1.animate({transform: 't0,40'},500);
-      break;
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-      case 9:this1.animate({transform: 't0,0'},500);
-      break;
 
-      case 10:this1.animate({transform: 't40,0'},500);
-      break;
+      }
 
-      case 11:this1.animate({transform: 't,-40'},500);
+
+
+
+    }
+    break;
+
+    case 3:
+    if(current_Blockly.left-(w2cx+20)>0)
+    {
+      this1.animate({transform: 't'+(-ccx)+',0'},500);
+
+      up(this1);
+    }
+    else
+    {
+
+      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+    }
+    break;
+
+    case 4:
+    break;
+
+    case 5:
+    if((left_centroid_y-20)-w2.bottom>0)
+    {
+      this1.animate({transform: 't0,'+(-ccx)},500);
+
+      up(this1);
+    }
+    else
+    {
+
+      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+    }
+
+    break;
+
+    case 6:
+    break;
+
+    case 7:
+
+    if((w2cx-20)-current_Blockly.right>0)
+    {
+      this1.animate({transform: 't'+(ccx)+',0'},500);
+
+      up(this1);
+    }
+    else
+    {
+
+      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+    }
+
+    break;
+
+    case 8:
+
+    if(w2.top-(right_centroid_y+20)>0)
+    {
+      this1.animate({transform: 't0,'+ccx},500);
+
+      up(this1);
+    }
+    else
+    {
+
+      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+    }
+
+
+
+
+
+    break;
+
+    case 9:
+    break;
+
+    case 10:
+
+    if((w2cx-20)-current_Blockly.right>0)
+    {
+      this1.animate({transform: 't'+(ccx)+',0'},500);
+
+      up(this1);
+    }
+    else
+    {
+
+      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+    }
+
+
+
+
+
+    break;
+
+      case 11://this1.animate({transform: 't0,-40'},500);
+       //this1.animate({transform: 't0,40'},500);
+       if((right_centroid_y-20)-(w2.bottom)>0)
+       {
+        this1.animate({transform: 't0,'+(-cxx)},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
       break;
     };
 
 
-}
+  }
 
-else
-{var iss=Math.min.apply(Math,myArray);
-  console.log('iss');
-  console.log(iss);
-if(iss>50)
-{
-  count=0;
-  console.log('in');
-this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+  else
+  {
+    this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-}
-else{
-  console.log('out');
-  count=25;
-  console.log(count);
- this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-}
-}
+
+  }
+
 
 
 
@@ -277,80 +383,232 @@ else{
 
 moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_centroid_x,bottom_centroid_y,dx,dy){
 
-  
-                      var w2=blockB.node.getBoundingClientRect();
-                     thiscx=w2.left;
-                      thiscy=(w2.top+w2.bottom)/2;
 
-    var distance_from_left_bottom_t=Math.sqrt(Math.pow((top_centroid_x-(thiscx+20)),2)+Math.pow((top_centroid_y-(thiscy+20)),2));
-    var distance_from_left_top_t=Math.sqrt(Math.pow((top_centroid_x-(thiscx+20)),2)+Math.pow((top_centroid_y-(thiscy-20)),2));
-    var distance_from_left_left_t=Math.sqrt(Math.pow((top_centroid_x-(thiscx)),2)+Math.pow((top_centroid_y-thiscy),2));
+  var w2=blockB.node.getBoundingClientRect();
+  thiscx=w2.left;
+  thiscy=(w2.top+w2.bottom)/2;
 
-    var distance_from_right_bottom_t=Math.sqrt(Math.pow((top_centroid_x-(w2.right-20)),2)+Math.pow((top_centroid_y-(thiscy+20)),2));
-    var distance_from_right_top_t=Math.sqrt(Math.pow((top_centroid_x-(w2.right-20)),2)+Math.pow((top_centroid_y-(thiscy-20)),2));
-    var distance_from_right_right_t=Math.sqrt(Math.pow((top_centroid_x-(w2.right)),2)+Math.pow((top_centroid_y-thiscy),2));
+  var distance_from_left_bottom_t=Math.sqrt(Math.pow((top_centroid_x-(w2.left+20)),2)+Math.pow((top_centroid_y-(thiscy+20)),2));
+  var distance_from_left_top_t=Math.sqrt(Math.pow((top_centroid_x-(w2.left+20)),2)+Math.pow((top_centroid_y-(thiscy-20)),2));
+  var distance_from_left_left_t=Math.sqrt(Math.pow((top_centroid_x-(w2.left)),2)+Math.pow((top_centroid_y-thiscy),2));
 
-
- var distance_from_left_bottom_b=Math.sqrt(Math.pow((bottom_centroid_x-(thiscx+20)),2)+Math.pow((bottom_centroid_y-(thiscy+20)),2));
- var distance_from_left_top_b=Math.sqrt(Math.pow((bottom_centroid_x-(thiscx+20)),2)+Math.pow((bottom_centroid_y-(thiscy-20)),2));
- var distance_from_left_left_b=Math.sqrt(Math.pow((bottom_centroid_x-(thiscx)),2)+Math.pow((bottom_centroid_y-thiscy),2));
-
- var distance_from_right_bottom_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right-20)),2)+Math.pow((bottom_centroid_y-(thiscy+20)),2));
- var distance_from_right_top_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right-20)),2)+Math.pow((bottom_centroid_y-(thiscy-20)),2));
- var distance_from_right_right_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right)),2)+Math.pow((bottom_centroid_y-thiscy),2));
+  var distance_from_right_bottom_t=Math.sqrt(Math.pow((top_centroid_x-(w2.right-20)),2)+Math.pow((top_centroid_y-(thiscy+20)),2));
+  var distance_from_right_top_t=Math.sqrt(Math.pow((top_centroid_x-(w2.right-20)),2)+Math.pow((top_centroid_y-(thiscy-20)),2));
+  var distance_from_right_right_t=Math.sqrt(Math.pow((top_centroid_x-(w2.right)),2)+Math.pow((top_centroid_y-thiscy),2));
 
 
- var myArray=[distance_from_left_bottom_t,distance_from_left_bottom_b,distance_from_left_top_b,distance_from_left_top_t,distance_from_left_left_b,distance_from_left_left_t,distance_from_right_bottom_b,distance_from_right_bottom_t,distance_from_right_top_b,distance_from_right_top_t,distance_from_right_right_b,distance_from_right_right_t];
+  var distance_from_left_bottom_b=Math.sqrt(Math.pow((bottom_centroid_x-(thiscx+20)),2)+Math.pow((bottom_centroid_y-(thiscy+20)),2));
+  var distance_from_left_top_b=Math.sqrt(Math.pow((bottom_centroid_x-(thiscx+20)),2)+Math.pow((bottom_centroid_y-(thiscy-20)),2));
+  var distance_from_left_left_b=Math.sqrt(Math.pow((bottom_centroid_x-(thiscx)),2)+Math.pow((bottom_centroid_y-thiscy),2));
 
-var id=myArray.indexOf(Math.min.apply(Math, myArray));
+  var distance_from_right_bottom_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right-20)),2)+Math.pow((bottom_centroid_y-(thiscy+20)),2));
+  var distance_from_right_top_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right-20)),2)+Math.pow((bottom_centroid_y-(thiscy-20)),2));
+  var distance_from_right_right_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right)),2)+Math.pow((bottom_centroid_y-thiscy),2));
 
-if(Math.min.apply(Math,myArray)<60){
+
+  var myArray=[distance_from_left_bottom_t,distance_from_left_bottom_b,distance_from_left_top_b,distance_from_left_top_t,distance_from_left_left_b,distance_from_left_left_t,distance_from_right_bottom_b,distance_from_right_bottom_t,distance_from_right_top_b,distance_from_right_top_t,distance_from_right_right_b,distance_from_right_right_t];
+
+  var id=myArray.indexOf(Math.min.apply(Math, myArray));
+
+
+  var ccy=Math.min.apply(Math,myArray)-10;
+  if(Math.min.apply(Math,myArray)<40&&Math.min.apply(Math,myArray)>0){
 
     switch(id){
-      case 0: this1.animate({transform: 't0,-40'},500);
+      case 0: //this1.animate({transform: 't0,-40'},500);
+
+      if((top_centroid_y-20)-(thiscy+20)>0)
+      {
+
+        this1.animate({transform: 't0,'+(-ccy)},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
       break;
 
-      case 1: this1.animate({transform: 't0,0'},500);//
+      case 1: //this1.animate({transform: 't0,0'},500);//
       break;
 
-      case 2: this1.animate({transform: 't0,40'},500);
+      case 2: //this1.animate({transform: 't0,40'},500);
+      
+      if((thiscy-20)-(bottom_centroid_y+20)>0)
+      {
+
+        this1.animate({transform: 't0,'+(ccy)},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
+
+
       break;
 
-      case 3:this1.animate({transform: 't0,0'},500);
+      case 3://this1.animate({transform: 't0,0'},500);
       break;
 
-      case 4:this1.animate({transform: 't40,0'},500);
+      case 4:
+
+      if(w2.left-(bottom_centroid_x+20)>0)
+      {
+
+        this1.animate({transform: 't'+(ccy)+',0'},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
+      //this1.animate({transform: 't40,0'},500);
       break;
 
-      case 5:this1.animate({transform: 't40,0'},500);
+      case 5://this1.animate({transform: 't40,0'},500);
+      
+      if(w2.left-(top_centroid_x+20)>0)
+      {
+
+        this1.animate({transform: 't'+(ccy)+',0'},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
+
+
+
       break;
 
-      case 6:this1.animate({transform: 't0,0'},500);
+      case 6://this1.animate({transform: 't0,0'},500);
       break;
 
-      case 7:this1.animate({transform: 't0,-40'},500);
+      case 7://this1.animate({transform: 't0,-40'},500);
+      if((top_centroid_y-20)-(thiscy+20)>0)
+      {
+
+        this1.animate({transform: 't0,'+(-ccy)},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
+
       break;
 
-      case 8:this1.animate({transform: 't0,40'},500);
+      case 8://this1.animate({transform: 't0,40'},500);
+      
+      if((thiscy-20)-(bottom_centroid_y+20)>0)
+      {
+
+        this1.animate({transform: 't0,'+(ccy)},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
+
+
       break;
 
-      case 9:this1.animate({transform: 't0,0'},500);
+      case 9://this1.animate({transform: 't0,0'},500);
       break;
 
-      case 10:this1.animate({transform: 't-40,0'},500);
+      case 10://this1.animate({transform: 't-40,0'},500);
+
+      if((bottom_centroid_x-20)-(w2.right)>0)
+      {
+
+        this1.animate({transform: 't'+(-ccy)+',0'},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
       break;
 
-      case 11:this1.animate({transform: 't-40,0'},500);
+      case 11://this1.animate({transform: 't-40,0'},500);
+
+      if((top_centroid_x-20)-(w2.right)>0)
+      {
+
+        this1.animate({transform: 't'+(-ccy)+',0'},500);
+
+        up(this1);
+      }
+      else
+      {
+
+        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+
+      }
+
+
+
       break;
     };
-}
-else
-{
-  console.log('cmon');
+  }
+  else
+  {
+   
 
- this1.attr({x: this1.ox+ dx, y:this1.oy+dy });
+    this1.attr({x: this1.ox+ dx, y:this1.oy+dy });
 
-}
+  }
 
 
 
@@ -362,25 +620,21 @@ else
 
 
 
-up = function (dx,dy) {
-dx=0;
-dy=0;
- 
-      };
+up = function (block) {
+  block.undrag();
+  block.drag(move,start);
+};
 
 
-   
-               battery.drag(move, start,up);
-               wiret.drag(move,start,up);
-               wireb.drag(move,start,up);
-               redled.drag(move,start,up);
-             };
-             </script>
-           </head>
-           <body>
-            <div id="holder"></div>
-            <p id="copy">Demo of <a href="http://raphaeljs.com/">Raphaël</a>—JavaScript Vector Library</p>
 
-            <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
-            No newline at end of file
+battery.drag(move, start);
+wiret.drag(move,start);
+wireb.drag(move,start);
+redled.drag(move,start);
+};
+</script>
+</head>
+<body>
+  <div id="holder"></div>
 
+  <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
