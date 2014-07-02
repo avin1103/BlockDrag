@@ -14,8 +14,8 @@ window.onload = function () {
   var R = Raphael(0, 0, "100%", "100%"),
   battery=R.image("battery1.png",0,150,195,389); 
   //battery.rotate(90);
-  wiret=R.image("wire.png",400,0,500,60);
-  wireb=R.image("wire.png",400,0,500,60);
+  wiret=R.image("wire.png",400,0,400,60);
+  wireb=R.image("wire.png",400,0,400,60);
  // var sop=0;
  redled=R.image("Red_LED.png",0,150,195,389);
                 //redled.rotate(90);
@@ -411,7 +411,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
   var id=myArray.indexOf(Math.min.apply(Math, myArray));
 
 
-  var ccy=Math.min.apply(Math,myArray)-10;
+  var ccy=Math.min.apply(Math,myArray)-15;
   if(Math.min.apply(Math,myArray)<40&&Math.min.apply(Math,myArray)>0){
 
     switch(id){
@@ -639,5 +639,4 @@ redled.drag(move,start);
 <body>
   <div id="holder"></div>
 
-  <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-backface-visibility: hidden;
-">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
+  <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: absolute; left: 0px; top: 0px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs></svg></body></html>
