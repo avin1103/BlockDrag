@@ -161,7 +161,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 {
 
 
-  var xxx=this1.node.getBoundingClientRect();
+  //var xxx=this1.node.getBoundingClientRect();
   var w2=blockB.node.getBoundingClientRect();
   w2cx=(w2.right+w2.left)/2;
 
@@ -604,7 +604,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
   }
   else
   {
-   
+
 
     this1.attr({x: this1.ox+ dx, y:this1.oy+dy });
 
