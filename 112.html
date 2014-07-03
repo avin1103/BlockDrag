@@ -620,10 +620,10 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 up = function (block,dx,dy) {
 
  
-        block.attr({x: block.ox + dx, y: block.oy + dy});
     
   block.undrag();
 
+        block.attr({x: block.ox + dx, y: block.oy + dy});
 battery.drag(move, start);
 wiret.drag(move,start);
 wireb.drag(move,start);
