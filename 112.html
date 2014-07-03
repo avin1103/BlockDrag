@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <title>Raphaël · Drag-n-drop</title>
 <link rel="stylesheet" href="./Rapwee_files/demo.css" type="text/css" media="screen">
-<link href="edellinensivu.asp" rel="external">Foobar</a>
+
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon-precomposed" href="http://raphaeljs.com/Raphael.png">
 <link rel="stylesheet" href="./Rapwee_files/demo-print.css" type="text/css" media="print">
@@ -26,6 +26,7 @@ window.onload = function () {//
                 var bottom = [[]];
                 var right=[[]];
                 var x=0;
+
                 var start = function () {
                   this.ox = this.attr("x");
                   this.oy = this.attr("y");
@@ -179,7 +180,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
   var distance_from_bottom_right_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx+20)),2)+Math.pow((right_centroid_y-(w2.bottom-20)),2));
   var distance_from_bottom_left_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx-20)),2)+Math.pow((right_centroid_y-(w2.bottom-20)),2));
   var distance_from_bottom_bottom_r=Math.sqrt(Math.pow((right_centroid_x-(w2cx)),2)+Math.pow((right_centroid_y-w2.bottom),2));
-
+var myArray=[12];
   myArray=[distance_from_top_right_l,distance_from_top_left_l,distance_from_top_top_l,distance_from_bottom_right_l,distance_from_bottom_left_l,distance_from_bottom_bottom_l,distance_from_top_right_r,distance_from_top_left_r,distance_from_top_top_r,distance_from_bottom_right_r,distance_from_bottom_left_r,distance_from_bottom_bottom_r];
     //var min=checkMinimum(myArray);
     var id=myArray.indexOf(Math.min.apply(Math, myArray));
@@ -403,8 +404,8 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
   var distance_from_right_top_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right-20)),2)+Math.pow((bottom_centroid_y-(thiscy-20)),2));
   var distance_from_right_right_b=Math.sqrt(Math.pow((bottom_centroid_x-(w2.right)),2)+Math.pow((bottom_centroid_y-thiscy),2));
 
-
-  var myArray=[distance_from_left_bottom_t,distance_from_left_bottom_b,distance_from_left_top_b,distance_from_left_top_t,distance_from_left_left_b,distance_from_left_left_t,distance_from_right_bottom_b,distance_from_right_bottom_t,distance_from_right_top_b,distance_from_right_top_t,distance_from_right_right_b,distance_from_right_right_t];
+var myArray=[12];
+  myArray=[distance_from_left_bottom_t,distance_from_left_bottom_b,distance_from_left_top_b,distance_from_left_top_t,distance_from_left_left_b,distance_from_left_left_t,distance_from_right_bottom_b,distance_from_right_bottom_t,distance_from_right_top_b,distance_from_right_top_t,distance_from_right_right_b,distance_from_right_right_t];
 
   var id=myArray.indexOf(Math.min.apply(Math, myArray));
 
@@ -624,22 +625,40 @@ up = function (block,dx,dy) {
         block.attr({x: block.ox + dx, y: block.oy + dy});
     
   block.undrag();
-
+x=1;
+block.touchstart(first(dx,dy));
 //battery.drag(move, start);
-block.drag(move,start);
+//block.drag(move,start);
 //wireb.drag(move,start);
 //redled.drag(move,start);
-};
+},
 
+first = function(dx,dy){
+  if(x==1)
+{
+console.log('im wr');
+        wiret.attr({x: wiret.ox + dx+100, y: wiret.oy + dy});
+        x=0;
+        wiret.drag(move,start);
 
-//battery.touchmove(  battery=R.image("Red_LED.png",0,150,195,389) );
-//
+}
+else
+{
+  wiret.drag(move,start);
+}
 battery.drag(move, start);
 
 wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
 };
+               wiret.drag(move,start);
+
+//first(dx,dy);
+//battery.touchmove(  battery=R.image("Red_LED.png",0,150,195,389) );
+//
+};
+
 </script>
 </head>
 <body>
