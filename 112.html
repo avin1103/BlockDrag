@@ -12,13 +12,13 @@
 <script>
 window.onload = function () {
   var R = Raphael(0, 0, "100%", "100%"),
-  //battery=R.image("Battery.svg",0,150,195,389); 
-  //battery.rotate(90);
+  battery=R.image("Battery.svg",0,150,389,195); 
+  battery.rotate(90);
   wiret=R.image("wire.svg",250,0,389,55);
   wireb=R.image("wire.svg",250,600,389,55);
  redled=R.image("Red_LED.png",700,150,195,389);
                 //redled.rotate(90);
-                var blocks=[wireb,wiret,redled];
+                var blocks=[wireb,wiret,redled,battery];
 
                 var top = [[]];
                 var left = [[]];
