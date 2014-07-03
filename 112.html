@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <title>Raphaël · Drag-n-drop</title>
 <link rel="stylesheet" href="./Rapwee_files/demo.css" type="text/css" media="screen">
+<link href="edellinensivu.asp" rel="external">Foobar</a>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon-precomposed" href="http://raphaeljs.com/Raphael.png">
 <link rel="stylesheet" href="./Rapwee_files/demo-print.css" type="text/css" media="print">
@@ -629,12 +630,9 @@ wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
 };
-battery.node.onclick=function()
-{
-  //battery.attr("fill","red");
-battery.drag(move, start);
 
-};
+
+battery.touchstart(battery.drag(move, start))
 //
 wiret.drag(move,start);
 wireb.drag(move,start);
