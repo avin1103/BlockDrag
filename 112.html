@@ -624,13 +624,18 @@ up = function (block,dx,dy) {
     
   block.undrag();
 
-battery.drag(move, start);
+//battery.drag(move, start);
 wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
 };
-
+battery.node.onclick=function()
+{
+  //battery.attr("fill","red");
 battery.drag(move, start);
+
+};
+//
 wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
