@@ -12,19 +12,19 @@
 <script>
 window.onload = function () {
   var R = Raphael(0, 0, "100%", "100%"),
-  battery=R.image("battery1.png",0,150,195,389); 
+  //battery=R.image("Battery.svg",0,150,195,389); 
   //battery.rotate(90);
-  wiret=R.image("Wire (1).png",250,0,389,55);
-  wireb=R.image("Wire (1).png",250,600,389,55);
- redled=R.image("Red_LED.png",700,150,195,389);
+  wiret=R.image("wire.svg",250,0,389,55);
+  wireb=R.image("wire.svg",250,600,389,55);
+ redled=R.image("Red LED.svg",700,150,195,389);
                 //redled.rotate(90);
-                var blocks=[battery,wireb,wiret,redled];
+                var blocks=[wireb,wiret,redled];
 
                 var top = [[]];
                 var left = [[]];
                 var bottom = [[]];
                 var right=[[]];
-
+                var x=0;
                 var start = function () {
                   this.ox = this.attr("x");
                   this.oy = this.attr("y");
@@ -158,8 +158,6 @@ else{
 
 moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy)
 {
-
-
   //var xxx=this1.node.getBoundingClientRect();
   var w2=blockB.node.getBoundingClientRect();
   w2cx=(w2.right+w2.left)/2;
@@ -620,16 +618,19 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
 
 
 up = function (block,dx,dy) {
-  block.undrag();
+
  
         block.attr({x: block.ox + dx, y: block.oy + dy});
-battery.drag(move, start);
+    
+  block.undrag();
+
+//battery.drag(move, start);
 wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
 };
 
-battery.drag(move, start);
+//battery.drag(move, start);
 wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
