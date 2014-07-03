@@ -16,7 +16,6 @@ window.onload = function () {
   //battery.rotate(90);
   wiret=R.image("wire.png",250,0,400,60);
   wireb=R.image("wire.png",250,600,400,60);
- // var sop=0;
  redled=R.image("Red_LED.png",700,150,195,389);
                 //redled.rotate(90);
                 var blocks=[battery,wireb,wiret,redled];
@@ -624,17 +623,16 @@ up = function (block,dx,dy) {
   block.undrag();
  
         block.attr({x: block.ox + dx, y: block.oy + dy});
-motion();
-// block.drag(move,start);
-},
-motion = function(){
-
 battery.drag(move, start);
 wiret.drag(move,start);
 wireb.drag(move,start);
 redled.drag(move,start);
 };
-motion();
+
+battery.drag(move, start);
+wiret.drag(move,start);
+wireb.drag(move,start);
+redled.drag(move,start);
 };
 </script>
 </head>
