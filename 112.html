@@ -191,7 +191,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
       if(current_Blockly.left-(w2cx+20)>0)
       {
 
-        this1.animate({transform: 't'+(-ccx)+',0'},500);
+        this1.animate({transform: 't'+(-ccx)+',0'},100);
 
         up(this1,dx,dy);
       }
@@ -214,7 +214,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 
        if((left_centroid_y+20)-(w2.top)<0)
        {
-        this1.animate({transform: 't0,'+(ccx)},500);
+        this1.animate({transform: 't0,'+(ccx)},100);
 
         up(this1,dx,dy);
       }
@@ -235,7 +235,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     case 3:
     if(current_Blockly.left-(w2cx+20)>0)
     {
-      this1.animate({transform: 't'+(-ccx)+',0'},500);
+      this1.animate({transform: 't'+(-ccx)+',0'},100);
 
       up(this1,dx,dy);
     }
@@ -254,7 +254,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
     case 5:
     if((left_centroid_y-20)-w2.bottom>0)
     {
-      this1.animate({transform: 't0,'+(-ccx)},500);
+      this1.animate({transform: 't0,'+(-ccx)},100);
 
       up(this1,dx,dy);
     }
@@ -275,7 +275,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 
     if((w2cx-20)-current_Blockly.right>0)
     {
-      this1.animate({transform: 't'+(ccx)+',0'},500);
+      this1.animate({transform: 't'+(ccx)+',0'},100);
 
       up(this1,dx,dy);
     }
@@ -293,7 +293,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 
     if(w2.top-(right_centroid_y+20)>0)
     {
-      this1.animate({transform: 't0,'+ccx},500);
+      this1.animate({transform: 't0,'+ccx},100);
 
       up(this1,dx,dy);
     }
@@ -318,7 +318,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
 
     if((w2cx-20)-current_Blockly.right>0)
     {
-      this1.animate({transform: 't'+(ccx)+',0'},500);
+      this1.animate({transform: 't'+(ccx)+',0'},100);
 
       up(this1,dx,dy);
     }
@@ -340,7 +340,7 @@ moveVertical = function(this1,blockB,left_centroid_x,left_centroid_y,right_centr
        //this1.animate({transform: 't0,40'},500);
        if((right_centroid_y-20)-(w2.bottom)>0)
        {
-        this1.animate({transform: 't0,'+(-cxx)},500);
+        this1.animate({transform: 't0,'+(-cxx)},100);
 
         up(this1,dx,dy);
       }
@@ -417,7 +417,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if((top_centroid_y-20)-(thiscy+20)>0)
       {
 
-        this1.animate({transform: 't0,'+(-ccy)},500);
+        this1.animate({transform: 't0,'+(-ccy)},100);
 
         up(this1,dx,dy);
       }
@@ -440,7 +440,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if((thiscy-20)-(bottom_centroid_y+20)>0)
       {
 
-        this1.animate({transform: 't0,'+(ccy)},500);
+        this1.animate({transform: 't0,'+(ccy)},100);
 
         up(this1,dx,dy);
       }
@@ -466,7 +466,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if(w2.left-(bottom_centroid_x+20)>0)
       {
 
-        this1.animate({transform: 't'+(ccy)+',0'},500);
+        this1.animate({transform: 't'+(ccy)+',0'},100);
 
         up(this1,dx,dy);
       }
@@ -488,7 +488,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if(w2.left-(top_centroid_x+20)>0)
       {
 
-        this1.animate({transform: 't'+(ccy)+',0'},500);
+        this1.animate({transform: 't'+(ccy)+',0'},100);
 
         up(this1,dx,dy);
       }
@@ -514,7 +514,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if((top_centroid_y-20)-(thiscy+20)>0)
       {
 
-        this1.animate({transform: 't0,'+(-ccy)},500);
+        this1.animate({transform: 't0,'+(-ccy)},100);
 
         up(this1,dx,dy);
       }
@@ -536,7 +536,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if((thiscy-20)-(bottom_centroid_y+20)>0)
       {
 
-        this1.animate({transform: 't0,'+(ccy)},500);
+        this1.animate({transform: 't0,'+(ccy)},100);
 
         up(this1,dx,dy);
       }
@@ -562,7 +562,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if((bottom_centroid_x-20)-(w2.right)>0)
       {
 
-        this1.animate({transform: 't'+(-ccy)+',0'},500);
+        this1.animate({transform: 't'+(-ccy)+',0'},100);
 
         up(this1,dx,dy);
       }
@@ -582,7 +582,7 @@ moveHorizontalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom
       if((top_centroid_x-20)-(w2.right)>0)
       {
 
-        this1.animate({transform: 't'+(-ccy)+',0'},500);
+        this1.animate({transform: 't'+(-ccy)+',0'},100);
 
         up(this1,dx,dy);
       }
@@ -623,7 +623,6 @@ up = function (block,dx,dy) {
     
   block.undrag();
 
-        block.attr({x: block.ox + dx, y: block.oy + dy});
 battery.drag(move, start);
 wiret.drag(move,start);
 wireb.drag(move,start);
