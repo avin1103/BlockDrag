@@ -14,128 +14,128 @@ window.onload = function () {//
   var R = Raphael(0, 0, "100%", "100%"),
   battery=R.image("battery1.png",0,150,195,389); 
 
- wiret=R.image("wire.svg",250,0,389,55);
- wireb=R.image("wire.svg",250,400,389,55);
- redled=R.image("Red_LED.png",700,150,195,389);
-      
-                var blocks=[wireb,wiret,redled,battery];
+  wiret=R.image("wire.svg",250,0,389,55);
+  wireb=R.image("wire.svg",250,400,389,55);
+  redled=R.image("Red_LED.png",700,150,195,389);
+
+  var blocks=[wireb,wiret,redled,battery];
 
 
-                var top = [[]];
-                var left = [[]];
-                var bottom = [[]];
-                var right=[[]];
-                var top_centroid_x;
-                var top_centroid_y;
-                var bottom_centroid_x;
-                var bottom_centroid_y;
-                var left_centroid_x;
-                var left_centroid_y;
-                var right_centroid_x;
-                var right_centroid_y;
-                var distance_from_left_bottom_t;
-                var distance_from_left_top_t;
-                var distance_from_left_left_t;
+  var top = [[]];
+  var left = [[]];
+  var bottom = [[]];
+  var right=[[]];
+  var top_centroid_x;
+  var top_centroid_y;
+  var bottom_centroid_x;
+  var bottom_centroid_y;
+  var left_centroid_x;
+  var left_centroid_y;
+  var right_centroid_x;
+  var right_centroid_y;
+  var distance_from_left_bottom_t;
+  var distance_from_left_top_t;
+  var distance_from_left_left_t;
 
-                var distance_from_right_bottom_t;
-                var distance_from_right_top_t;
-                var distance_from_right_right_t;
-
-
-                var distance_from_left_bottom_b;
-                var distance_from_left_top_b;
-                var distance_from_left_left_b;
-
-                var distance_from_right_bottom_b;
-                var distance_from_right_top_b;
-                var distance_from_right_right_b;
+  var distance_from_right_bottom_t;
+  var distance_from_right_top_t;
+  var distance_from_right_right_t;
 
 
-                var distance_from_top_right_l;
-                var distance_from_top_left_l;
-                var distance_from_top_top_l;
+  var distance_from_left_bottom_b;
+  var distance_from_left_top_b;
+  var distance_from_left_left_b;
 
-                var distance_from_bottom_right_l;
-                var distance_from_bottom_left_l;
-                var distance_from_bottom_bottom_l;
-
-                var distance_from_top_right_r;
-                var distance_from_top_left_r;
-                var distance_from_top_top_r;
-
-                var distance_from_bottom_right_r;
-                var distance_from_bottom_left_r;
-                var distance_from_bottom_bottom_r;
+  var distance_from_right_bottom_b;
+  var distance_from_right_top_b;
+  var distance_from_right_right_b;
 
 
-                var start = function () {
-                  this.ox = this.attr("x");
-                  this.oy = this.attr("y");
+  var distance_from_top_right_l;
+  var distance_from_top_left_l;
+  var distance_from_top_top_l;
 
-                },
-                leftTerminal=function(block)
-                {  
-  cx=block.left;
-  cy=(block.top+block.bottom)/2;
-  left=[[cx,cy],[cx+20,cy+20],[cx+20,cy-20],[cx+40/3,cy]];
+  var distance_from_bottom_right_l;
+  var distance_from_bottom_left_l;
+  var distance_from_bottom_bottom_l;
 
+  var distance_from_top_right_r;
+  var distance_from_top_left_r;
+  var distance_from_top_top_r;
 
-                      }, 
-                      rightTerminal=function(block)
-                      {   cx=block.right;
-                        cy=(block.top+block.bottom)/2;
-                        right=[[cx,cy],[cx-20,cy-20],[cx-20,cy+20],[cx-40/3,cy]];
-
-                      }, 
-
-                      topTerminal=function(block)
-                      {
-                        w2cx=(block.right+block.left)/2;
-                       
-                      top=[[w2cx,block.top],[w2cx-20,block.top+20],[w2cx+20,block.top+20],[w2cx,block.top+40/3]];
-
-                    },
-                    bottomTerminal=function(block)
-                    {
-                      var w2=block;
-
-                      w2cy=(w2.top+w2.bottom)/4;
-                      w2cx=(w2.right+w2.left)/2;
-                      w1cx=(w2.right+w2.left)/2;
-                      w1cy=(w2.bottom);
-
-  bottom=[[w2cx,w1cy],[w2cx+20,w1cy-20],[w2cx-20,w1cy-20],[w2cx,w1cy-40/3]];
+  var distance_from_bottom_right_r;
+  var distance_from_bottom_left_r;
+  var distance_from_bottom_bottom_r;
 
 
-},
-move = function (dx, dy) {
-  var current_Block=this.node.getBoundingClientRect();
-  var blockA=this;
-  if(current_Block.height>current_Block.width)
+  var start = function () {
+    this.ox = this.attr("x");
+    this.oy = this.attr("y");
+
+  },
+  leftTerminal=function(block)
+  {  
+    cx=block.left;
+    cy=(block.top+block.bottom)/2;
+    left=[[cx,cy],[cx+20,cy+20],[cx+20,cy-20],[cx+40/3,cy]];
+
+
+  }, 
+  rightTerminal=function(block)
+  {   cx=block.right;
+    cy=(block.top+block.bottom)/2;
+    right=[[cx,cy],[cx-20,cy-20],[cx-20,cy+20],[cx-40/3,cy]];
+
+  }, 
+
+  topTerminal=function(block)
   {
-    topTerminal(current_Block);
-    bottomTerminal(current_Block);
-    top_centroid_x=top[3][0];
-    top_centroid_y=top[3][1];
-    bottom_centroid_x=bottom[3][0];
-    bottom_centroid_y=bottom[3][1];
-  }
-  else
-  {
-    leftTerminal(current_Block);
-    rightTerminal(current_Block);
-    left_centroid_x=left[3][0];
-    left_centroid_y=left[3][1];
-    right_centroid_x=right[3][0];
-    right_centroid_y=right[3][1];
+    w2cx=(block.right+block.left)/2;
 
-  }
+    top=[[w2cx,block.top],[w2cx-20,block.top+20],[w2cx+20,block.top+20],[w2cx,block.top+40/3]];
 
-  for(var i=0;i<blocks.length;i++)
+  },
+  bottomTerminal=function(block)
   {
-    if(blocks[i]!==blockA)
+    var w2=block;
+
+    w2cy=(w2.top+w2.bottom)/4;
+    w2cx=(w2.right+w2.left)/2;
+    w1cx=(w2.right+w2.left)/2;
+    w1cy=(w2.bottom);
+
+    bottom=[[w2cx,w1cy],[w2cx+20,w1cy-20],[w2cx-20,w1cy-20],[w2cx,w1cy-40/3]];
+
+
+  },
+  move = function (dx, dy) {
+    var current_Block=this.node.getBoundingClientRect();
+    var blockA=this;
+    if(current_Block.height>current_Block.width)
     {
-      var blockB=blocks[i].node.getBoundingClientRect();
+      topTerminal(current_Block);
+      bottomTerminal(current_Block);
+      top_centroid_x=top[3][0];
+      top_centroid_y=top[3][1];
+      bottom_centroid_x=bottom[3][0];
+      bottom_centroid_y=bottom[3][1];
+    }
+    else
+    {
+      leftTerminal(current_Block);
+      rightTerminal(current_Block);
+      left_centroid_x=left[3][0];
+      left_centroid_y=left[3][1];
+      right_centroid_x=right[3][0];
+      right_centroid_y=right[3][1];
+
+    }
+
+    for(var i=0;i<blocks.length;i++)
+    {
+      if(blocks[i]!==blockA)
+      {
+        var blockB=blocks[i].node.getBoundingClientRect();
      if(blockB.height>blockB.width)//vertical
      {
       moveHorizontalBlock(blockA,blocks[i],left_centroid_x,left_centroid_y,right_centroid_x,right_centroid_y,dx,dy);
@@ -179,185 +179,210 @@ moveHorizontalBlock = function(this1,blockB,left_centroid_x,left_centroid_y,righ
      var current_Blockly=this1.node.getBoundingClientRect();
 
      switch(id){
-      case 0:  
+      case 0:   //moving the block 'left'
       if(current_Blockly.left-(w2cx+20)>0)
       {
+        var px=w2cx+20-current_Blockly.left-5;
+        var py=w2.top-(current_Blockly.top+10);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
 
-        this1.animate({transform: 't'+(-shift)+',0'},100);
+up(this1,dx,dy);
+}
+else
+{
 
-        up(this1,dx,dy);
-      }
-      else
-      {
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
+}
+break;
 
-      }
-      break;
+case 1:
+break;
 
-      case 1:
-      break;
+case 2: { 
 
-      case 2: {
 
 
 
+ if((left_centroid_y+20)-(w2.top)<0)
+ {
 
-       if((left_centroid_y+20)-(w2.top)<0)
-       {
-        this1.animate({transform: 't0,'+(shift)},100);
+        var px=w2cx-20-current_Blockly.left;
+        var py=w2.top-(current_Blockly.bottom-10);
+//  this1.animate({transform: 't0,'+(shift)},100);
 
-        up(this1,dx,dy);
-      }
-      else
-      {
+this1.animate({transform: 't'+px+','+py},100);
 
-        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+  up(this1,dx,dy);
+}
+else
+{
 
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-      }
 
+}
 
 
 
-    }
-    break;
 
-    case 3:
-    if(current_Blockly.left-(w2cx+20)>0)
-    {
-      this1.animate({transform: 't'+(-shift)+',0'},100);
+}
+break;
 
-      up(this1,dx,dy);
-    }
-    else
-    {
+case 3:
+if(current_Blockly.left-(w2cx+20)>0)
+{
+  //this1.animate({transform: 't'+(-shift)+',0'},100);
+var px=w2cx+20-current_Blockly.left-5;
+        var py=w2.bottom-(current_Blockly.bottom-10);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
+  up(this1,dx,dy);
+}
+else
+{
 
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
 
-    }
-    break;
+}
+break;
 
-    case 4:
-    break;
+case 4:
+break;
 
-    case 5:
-    if((left_centroid_y-20)-w2.bottom>0)
-    {
-      this1.animate({transform: 't0,'+(-shift)},100);
+case 5:
+if((left_centroid_y-20)-w2.bottom>0)
+{
+  //this1.animate({transform: 't0,'+(-shift)},100);
+var px=w2cx-20-current_Blockly.left;
+        var py=w2.bottom-(current_Blockly.top+10);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
+  up(this1,dx,dy);
+}
+else
+{
 
-      up(this1,dx,dy);
-    }
-    else
-    {
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
+}
 
-    }
+break;
 
-    break;
+case 6:
+break;
 
-    case 6:
-    break;
+case 7:
 
-    case 7:
+if((w2cx-20)-current_Blockly.right>0)
+{
+ // this1.animate({transform: 't'+(shift)+',0'},100);
+   var px=w2cx-20-current_Blockly.right+5;
+        var py=w2.top-(current_Blockly.top+10);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
+  up(this1,dx,dy);
+}
+else
+{
 
-    if((w2cx-20)-current_Blockly.right>0)
-    {
-      this1.animate({transform: 't'+(shift)+',0'},100);
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-      up(this1,dx,dy);
-    }
-    else
-    {
 
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+}
 
+break;
 
-    }
+case 8:
 
-    break;
+if(w2.top-(right_centroid_y+20)>0)
+{
+//  this1.animate({transform: 't0,'+shift},100);
+ //var px=w2cx-20-current_Blockly.right+5;
+      var px=current_Blockly.right-(w2cx+20);
+        var py=w2.top-(current_Blockly.top+45);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
+  up(this1,dx,dy);
+}
+else
+{
 
-    case 8:
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-    if(w2.top-(right_centroid_y+20)>0)
-    {
-      this1.animate({transform: 't0,'+shift},100);
 
-      up(this1,dx,dy);
-    }
-    else
-    {
+}
 
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
 
-    }
 
 
+break;
 
+case 9:
+break;
 
+case 10:
 
-    break;
+if((w2cx-20)-current_Blockly.right>0)
+{
+  //this1.animate({transform: 't'+(shift)+',0'},100);
+ var px=w2cx-20-current_Blockly.right+5;
+        var py=w2.bottom-(current_Blockly.top+45);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
+  up(this1,dx,dy);
+}
+else
+{
 
-    case 9:
-    break;
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
-    case 10:
 
-    if((w2cx-20)-current_Blockly.right>0)
-    {
-      this1.animate({transform: 't'+(shift)+',0'},100);
+}
 
-      up(this1,dx,dy);
-    }
-    else
-    {
 
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
 
-    }
 
+break;
 
+case 11:
+if((right_centroid_y-20)-(w2.bottom)>0)
+{
+ //this1.animate({transform: 't0,'+(-cxx)},100);
+   var px=-(w2cx-20-current_Blockly.right);
+        var py=w2.top-(current_Blockly.top+10);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
+  up(this1,dx,dy);
+}
+else
+{
 
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
 
-    break;
+}
 
-      case 11://this1.animate({transform: 't0,-40'},100);
-       //this1.animate({transform: 't0,40'},100);
-       if((right_centroid_y-20)-(w2.bottom)>0)
-       {
-        this1.animate({transform: 't0,'+(-cxx)},100);
 
-        up(this1,dx,dy);
-      }
-      else
-      {
 
-        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
+};
 
 
-      }
+}
 
+else
+{
+  this1.attr({x: this1.ox + dx, y: this1.oy + dy});
 
 
-      break;
-    };
-
-
-  }
-
-  else
-  {
-    this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-  }
+}
 
 
 
@@ -398,10 +423,11 @@ moveVerticalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_c
   var distanceArray=[distance_from_left_bottom_t,distance_from_left_bottom_b,distance_from_left_top_b,distance_from_left_top_t,distance_from_left_left_b,distance_from_left_left_t,distance_from_right_bottom_b,distance_from_right_bottom_t,distance_from_right_top_b,distance_from_right_top_t,distance_from_right_right_b,distance_from_right_right_t];
 
   var id=distanceArray.indexOf(Math.min.apply(Math, distanceArray));
-
+  
 
   var shift=Math.min.apply(Math,distanceArray)-15;
   if(Math.min.apply(Math,distanceArray)<40&&Math.min.apply(Math,distanceArray)>0){
+   var current_Blockly=this1.node.getBoundingClientRect();
 
     switch(id){
       case 0:
@@ -409,7 +435,12 @@ moveVerticalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_c
       if((top_centroid_y-20)-(thiscy+20)>0)
       {
 
-        this1.animate({transform: 't0,'+(-shift)},100);
+        //this1.animate({transform: 't0,'+(-shift)},100);
+      //  console.log('asda');
+ var px=thiscy-current_Blockly.top+50;
+        var py=w2.top-(current_Blockly.top-40);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
 
         up(this1,dx,dy);
       }
@@ -432,7 +463,11 @@ moveVerticalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_c
       if((thiscy-20)-(bottom_centroid_y+20)>0)
       {
 
-        this1.animate({transform: 't0,'+(shift)},100);
+        //this1.animate({transform: 't0,'+(shift)},100);
+        var px=current_Blockly.bottom-(w2.left+450);
+        var py=thiscy-20-(current_Blockly.bottom);
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
 
         up(this1,dx,dy);
       }
@@ -458,7 +493,11 @@ moveVerticalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_c
       if(w2.left-(bottom_centroid_x+20)>0)
       {
 
-        this1.animate({transform: 't'+(shift)+',0'},100);
+        //this1.animate({transform: 't'+(shift)+',0'},100);
+ var px=w2.left-((current_Blockly.left+current_Blockly.right)/2+20);
+        var py=thiscy-current_Blockly.bottom+20;
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
 
         up(this1,dx,dy);
       }
@@ -472,7 +511,7 @@ moveVerticalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_c
 
 
 
-     break;
+      break;
 
       case 5:
       if(w2.left-(top_centroid_x+20)>0)
@@ -503,8 +542,13 @@ moveVerticalBlock = function(this1,blockB,top_centroid_x,top_centroid_y,bottom_c
       case 7:
       if((top_centroid_y-20)-(thiscy+20)>0)
       {
+         var px=(current_Blockly.left+current_Blockly.right)/2-(w2.right-20);
+        var py=(w2.bottom-20)-current_Blockly.top+10;
+//this1.attr({x: px, y:py});
+this1.animate({transform: 't'+px+','+py},100);
 
-        this1.animate({transform: 't0,'+(-shift)},100);
+
+       // this1.animate({transform: 't0,'+(-shift)},100);
 
         up(this1,dx,dy);
       }
@@ -614,7 +658,7 @@ up = function (block,dx,dy) {
 
   block.undrag();
 
-block.drag(move,start);
+  block.drag(move,start);
 
 };
 
