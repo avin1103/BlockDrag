@@ -175,16 +175,14 @@ moveHorizontalBlock = function(this1,blockB,left_centroid_x,left_centroid_y,righ
   distanceArray=[distance_from_top_right_l,distance_from_top_left_l,distance_from_top_top_l,distance_from_bottom_right_l,distance_from_bottom_left_l,distance_from_bottom_bottom_l,distance_from_top_right_r,distance_from_top_left_r,distance_from_top_top_r,distance_from_bottom_right_r,distance_from_bottom_left_r,distance_from_bottom_bottom_r];
     var id=distanceArray.indexOf(Math.min.apply(Math, distanceArray));  //finding 
     var shift=Math.sqrt(Math.min.apply(Math,distanceArray))-10;
-    console.log(Math.min.apply(Math,distanceArray));
     if(shift<30){
 
       if(x==0){  var current_Blockly=this1.node.getBoundingClientRect();
 
      switch(id){
       case 0:  
-      if(current_Blockly.left-(w2cx+20)>0){
- 
-this1.node.onmouseup= function(){
+    
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(-shift)+',0'},100);
 
@@ -192,29 +190,19 @@ this1.node.onmouseup= function(){
 
  up(this1,dx,dy);
 
-     }
-      else
-      {
-
-        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-      }
       break;
 
       case 1:
-      break;
-
+       this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
       case 2: {
 
 
 
 
-       if((left_centroid_y+20)-(w2.top)<0)
-       {
-       // this1.animate({transform: 't0,'+(shift)},100);
-
      
 
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(shift)},100);
 
@@ -222,14 +210,7 @@ this1.node.onmouseup= function(){
 
  up(this1,dx,dy);
 
-      }
-      else
-      {
 
-        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-      }
 
 
 
@@ -238,37 +219,23 @@ this1.node.onmouseup= function(){
     break;
 
     case 3:
-    if(current_Blockly.left-(w2cx+20)>0)
-    {
-      
+        
  
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(-shift)+',0'},100);
 
 };      
 
  up(this1,dx,dy);
-
-    }
-    else
-    {
-
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-    }
-    break;
+  break;
 
     case 4:
-    break;
-
+     this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
     case 5:
-    if((left_centroid_y-20)-w2.bottom>0)
-    {
-     // this1.animate({transform: 't0,'+(-shift)},100);
  
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0'+(-shift)},100);
 
@@ -276,27 +243,16 @@ this1.node.onmouseup= function(){
 
  up(this1,dx,dy);
 
-    }
-    else
-    {
-
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-    }
 
     break;
 
     case 6:
-    break;
-
+     this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
     case 7:
 
-    if((w2cx-20)-current_Blockly.right>0)
-    {
-    //  this1.animate({transform: 't'+(shift)+',0'},100);
  
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(shift)+',0'},100);
 
@@ -304,73 +260,34 @@ this1.node.onmouseup= function(){
 
  up(this1,dx,dy);
 
-      
-    }
-    else
-    {
-
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-    }
-
     break;
 
     case 8:
 
-    if(w2.top-(right_centroid_y+20)>0)
-    {
-//      this1.animate({transform: 't0,'+shift},100);
-
      
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(shift)},100);
 
 };      
 
  up(this1,dx,dy);
-}
-    else
-    {
-
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-    }
-
-
-
-
 
     break;
 
     case 9:
-    break;
-
+     this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
     case 10:
 
-    if((w2cx-20)-current_Blockly.right>0)
-    {
-//      this1.animate({transform: 't'+(shift)+',0'},100);
  
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(shift)+',0'},100);
 
 };      
 
  up(this1,dx,dy);
-
-    }
-    else
-    {
-
-      this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-    }
-
 
 
 
@@ -378,32 +295,25 @@ this1.node.onmouseup= function(){
     break;
 
       case 11://this1.animate({transform: 't0,-40'},100);
-       //this1.animate({transform: 't0,40'},100);
-       if((right_centroid_y-20)-(w2.bottom)>0)
-       {
-//        this1.animate({transform: 't0,'+(-cxx)},100);
-
+       //this1.an
        
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(-shift)},100);
 
 };      
 
  up(this1,dx,dy);
-}
-      else
-      {
-
-        this1.attr({x: this1.ox + dx, y: this1.oy + dy});
-
-
-      }
-
-
 
       break;
     };
+}
+else
+{
+
+    this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+
+x=1;
 }
    
 
@@ -475,7 +385,7 @@ if(x==0){
 
 
 
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(-shift)},100);
 
@@ -499,15 +409,15 @@ this1.node.onmouseup= function(){
       break;
 
       case 1: 
-      break;
-
+       this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
       case 2:
       
       if((thiscy-20)-(bottom_centroid_y+20)>0)
       {
 
        // this1.animate({transform: 't0,'+(shift)},100);
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(shift)},100);
 
@@ -532,8 +442,8 @@ this1.node.onmouseup= function(){
       break;
 
       case 3:
-      break;
-
+       this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
       case 4:
 
       if(w2.left-(bottom_centroid_x+20)>0)
@@ -541,7 +451,7 @@ this1.node.onmouseup= function(){
 
 //        this1.animate({transform: 't'+(shift)+',0'},100);
 
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(shift)+',0'},100);
 
@@ -568,7 +478,7 @@ this1.node.onmouseup= function(){
       {
 
         //this1.animate({transform: 't'+(shift)+',0'},100);
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(shift)+',0'},100);
 
@@ -594,14 +504,14 @@ this1.node.onmouseup= function(){
       break;
 
       case 6:
-      break;
-
+       this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
       case 7:
       if((top_centroid_y-20)-(thiscy+20)>0)
       {
 
   //      this1.animate({transform: 't0,'+(-shift)},100);
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(-shift)},100);
 
@@ -630,7 +540,7 @@ this1.node.onmouseup= function(){
       {
 
         //this1.animate({transform: 't0,'+(shift)},100);
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't0,'+(shift)},100);
 
@@ -655,15 +565,15 @@ this1.node.onmouseup= function(){
       break;
 
       case 9://this1.animate({transform: 't0,0'},100);
-      break;
-
+       this1.attr({x: this1.ox + dx, y: this1.oy + dy});
+break;
       case 10://this1.animate({transform: 't-40,0'},100);
 
       if((bottom_centroid_x-20)-(w2.right)>0)
       {
 
         //this1.animate({transform: 't'+(-shift)+',0'},100);
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(-shift)+',0'},100);
 
@@ -690,7 +600,7 @@ this1.node.onmouseup= function(){
       {
 
         //this1.animate({transform: 't'+(-shift)+',0'},100);
-this1.node.onmouseup= function(){
+this1.node.touchend= function(){
 
       this1.animate({transform: 't'+(-shift)+',0'},100);
 
